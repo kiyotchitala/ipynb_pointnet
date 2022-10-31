@@ -24,7 +24,7 @@ def main():
     for iteration in range(100 ** 2):
 
         pointnet.zero_grad()
-        input_data, labels = data_sampler(path_1='./txt/*',path_2='./txt/*')
+        input_data, labels = data_sampler(path_1='./normalize_txt/takuya/150cm/*',path_2='./normalize_txt/takuya/150cm/*')
         #input_data, labels = data_sampler(batch_size, num_points)
 
         output = pointnet(input_data)
