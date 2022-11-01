@@ -2,7 +2,7 @@ import torch
 import glob
 
 def data_sampler(path_1, path_2):
-    path_2 = r'C:\Users\wtana\Desktop\LiDAR_cm\syoumen\kaneko\200cm\txt\*'
+    #path_2 = r'C:\Users\wtana\Desktop\LiDAR_cm\syoumen\kaneko\200cm\txt\*'
     true_files = glob.glob(path_1)
     false_files = glob.glob(path_2)
     
