@@ -21,10 +21,10 @@ def main():
     loss_list = []
     accuracy_list = []
 
-    for iteration in range(100 ** 2):
+    for iteration in range(200):
 
         pointnet.zero_grad()
-        input_data, labels = data_sampler(path_1='./normalize_txt/takuya/150cm/*',path_2='./normalize_txt/takuya/150cm/*')
+        input_data, labels = data_sampler(path_1='./normalize_txt/takuya/150cm/*',path_2='./normalize_txt/tree/*')
         #input_data, labels = data_sampler(batch_size, num_points)
 
         output = pointnet(input_data)
