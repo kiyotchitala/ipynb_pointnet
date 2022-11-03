@@ -21,7 +21,7 @@ def main():
     loss_list = []
     accuracy_list = []
 
-    for iteration in range(200):
+    for iteration in range(10):
 
         pointnet.zero_grad()
         input_data, labels = data_sampler(path_1='./normalize_txt/takuya/150cm/*',path_2='./normalize_txt/tree/*')
@@ -46,7 +46,8 @@ def main():
         if iteration % 10 == 0:
             print('Iteration : {}   Loss : {}'.format(iteration, error.item()))
             print('Iteration : {}   Accuracy : {}'.format(iteration, accuracy))
-            
-            
+        
+    torch.save(pointnet, './model.pth')
+
 if __name__ == '__main__':
     main()
