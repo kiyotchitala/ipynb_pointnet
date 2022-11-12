@@ -15,18 +15,19 @@ def data_sampler(path_1, path_2):
     true_list = []
     false_list = []
 
-    for idx in range(32 * 2):
+    for idx in range(len_true):
         s_num = []
         with open(true_files[idx],'r') as f:
             data = f.read().split('\n')
             for i in range(len(data)-1):
                 s = data[i].split(' ')
+                print(s)
                 s_num.append([float(s[0]),float(s[1]),float(s[2])])
         true_list.append([s_num])
 
-    for idx in range(32 * 2):
+    for idx in range(len_false):
         s_num = []
-        with open(false_files[i],'r') as f:
+        with open(false_files[idx],'r') as f:
             data = f.read().split('\n')
             for i in range(len(data)-1):
                 s = data[i].split(' ')
