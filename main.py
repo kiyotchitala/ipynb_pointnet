@@ -12,7 +12,7 @@ def main():
 
     new_param = pointnet.state_dict()
     new_param['main.0.main.6.bias'] = torch.eye(3, 3).view(-1)
-    new_param['main.3.main.6.bias'] = torch.eye(64, 64).view(-1)
+    new_param['main.3.main.6.bias'] = torch.eye(batch_size, batch_size).view(-1)
     pointnet.load_state_dict(new_param)
 
     criterion = nn.BCELoss()
@@ -47,7 +47,7 @@ def main():
             print('Iteration : {}   Loss : {}'.format(iteration, error.item()))
             print('Iteration : {}   Accuracy : {}'.format(iteration, accuracy))
         
-    torch.save(pointnet, './model.pth')
+    #torch.save(pointnet, './model.pth')
 
 if __name__ == '__main__':
     main()
