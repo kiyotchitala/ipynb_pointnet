@@ -6,17 +6,17 @@ loss = []
 Accu = []
 
 batch_size = 64
-num_points = 64
+num_points = 64 * 4
 num_labels = 1
 def main_(path_1,path_2,epoch):
     s_time = time.time()
     pointnet = PointNet(num_points, num_labels)
 
-    #new_param = pointnet.state_dict()
-    #new_param['main.0.main.6.bias'] = torch.eye(3, 3).view(-1)
-    #new_param['main.3.main.6.bias'] = torch.eye(64,64).view(-1)
-    #pointnet.load_state_dict(new_param)
-    pointnet.load_state_dict(torch.load('./human_wall.pth'))
+    new_param = pointnet.state_dict()
+    new_param['main.0.main.6.bias'] = torch.eye(3, 3).view(-1)
+    new_param['main.3.main.6.bias'] = torch.eye(64,64).view(-1)
+    pointnet.load_state_dict(new_param)
+    #pointnet.load_state_dict(torch.load('./human_wall.pth'))
     criterion = nn.BCELoss()
     optimizer = optim.Adam(pointnet.parameters(), lr=0.001)
 
