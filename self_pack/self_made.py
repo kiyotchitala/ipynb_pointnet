@@ -15,7 +15,7 @@ def data_sampler(path_1, path_2):
     true_list = []
     false_list = []
 
-    for idx in range(64):
+    for idx in range(64*2):
         s_num = []
         with open(true_files[idx],'r') as f:
             data = f.read().split('\n')
@@ -24,7 +24,7 @@ def data_sampler(path_1, path_2):
                 s_num.append([float(s[0]),float(s[1]),float(s[2])])
         true_list.append([s_num])
 
-    for idx in range(64):
+    for idx in range(64*2):
         s_num = []
         with open(false_files[idx],'r') as f:
             data = f.read().split('\n')
