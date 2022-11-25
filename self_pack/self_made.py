@@ -15,7 +15,7 @@ def data_sampler(path_1, path_2):
     true_list = []
     false_list = []
 
-    for idx in range(64):
+    for idx in range(64*2):
         s_num = []
         with open(true_files[idx],'r') as f:
             data = f.read().split('\n')
@@ -24,7 +24,7 @@ def data_sampler(path_1, path_2):
                 s_num.append([float(s[0]),float(s[1]),float(s[2])])
         true_list.append([s_num])
 
-    for idx in range(64):
+    for idx in range(64*2):
         s_num = []
         with open(false_files[idx],'r') as f:
             data = f.read().split('\n')
@@ -35,8 +35,8 @@ def data_sampler(path_1, path_2):
     #len_true = len(true_list)
     #len_false = len(false_list)
 
-    true_labels = torch.ones(32)
-    false_labels = torch.zeros(32)
+    true_labels = torch.ones(32*2)
+    false_labels = torch.zeros(32*2)
 
     input_data = torch.cat((torch.Tensor(true_list),torch.Tensor(false_list)),dim=0)
     labels = torch.cat((torch.Tensor(true_labels), torch.Tensor(false_labels)),dim=0)
