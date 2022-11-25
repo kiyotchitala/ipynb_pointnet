@@ -35,8 +35,8 @@ def data_sampler(path_1, path_2):
     #len_true = len(true_list)
     #len_false = len(false_list)
 
-    true_labels = torch.ones(32)
-    false_labels = torch.zeros(32)
+    true_labels = torch.ones(32*2)
+    false_labels = torch.zeros(32*2)
 
     input_data = torch.cat((torch.Tensor(true_list),torch.Tensor(false_list)),dim=0)
     labels = torch.cat((torch.Tensor(true_labels), torch.Tensor(false_labels)),dim=0)
